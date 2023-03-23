@@ -120,8 +120,8 @@ class MyAruco:
                     objPoints, corners[i], mtx, dist, rvecs[i], tvecs[i], criteria
                 )  # supposed to make more acuate i do not notice anything
                 cv2.drawFrameAxes(frame, mtx, dist, rvec, tvec, markerLength / 2, 3)
-        return rvecs, tvecs
                 cv2.rectangle(frame, (15, 15), (150, 150), (0, 255, 0), 4)
+        return rvecs, tvecs
 
 
 class ArucoApp(App):
