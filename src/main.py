@@ -121,6 +121,7 @@ class MyAruco:
                 )  # supposed to make more acuate i do not notice anything
                 cv2.drawFrameAxes(frame, mtx, dist, rvec, tvec, markerLength / 2, 3)
         return rvecs, tvecs
+                cv2.rectangle(frame, (15, 15), (150, 150), (0, 255, 0), 4)
 
 
 class ArucoApp(App):
@@ -256,7 +257,7 @@ class ArucoApp(App):
 
                         # Apply the color map to the depth image
                         colored_depth = cv2.applyColorMap(rescaled_array, colormap)
-                        cv2.imshow("depth", colored_depth)
+                        #cv2.imshow("depth", colored_depth)
                         cv2.waitKey(10)
                     # # trying to compute the depth above, pretty sure the image part is wrong
 
