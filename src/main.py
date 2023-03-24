@@ -96,7 +96,7 @@ class MyAruco:
             #########################################
             ret,frame = vs.read()    #use when reading from videos
             #frame = vs.read()
-            frame = imutils.resize(frame, width=width)
+            #frame = imutils.resize(frame, width=width)
             ratio = width/600
             ######
             #cv2.rectangle(frame, (270, 150), (330, 210), (0, 0, 255), 2)
