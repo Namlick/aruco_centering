@@ -75,8 +75,8 @@ class MyAruco:
         #     corners = cv2.cornerSubPix(frame, corners, (5,5), (-1,-1), criteria)
         # # We'll want to add the above for more accuracy but having difficulties
         frame_markers = cv2.aruco.drawDetectedMarkers(frame.copy(), corners, ids)
-        #print(corners)
-        cv2.putText(frame, ids, (400, 50), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 4)
+        print(ids)
+        cv2.putText(frame, "Aruco Centering", (400, 50), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 4)
         return corners, ids, frame_markers
 
     def pose_estimation(self, frame, corners, ids, mtx, dist):
