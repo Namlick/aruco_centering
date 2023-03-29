@@ -291,8 +291,8 @@ class ArucoApp(App):
                         
                         id = int(ids)
                         print(id)
-                        if id == 25:
-                            cv2.putText(frame, "Jaffa Orange Tree", (100, 700), cv2.FONT_HERSHEY_COMPLEX, 3, (0, 255, 0), 4)
+                        if (id == 25):
+                            cv2.putText(img, "Jaffa Orange Tree", (100, 700), cv2.FONT_HERSHEY_COMPLEX, 3, (0, 255, 0), 4)
                             print("ID 25 detected!")
 
                     # # Scale up images for consistent viewing
