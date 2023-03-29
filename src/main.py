@@ -19,7 +19,7 @@ os.environ["KIVY_NO_ARGS"] = "1"
 from kivy.config import Config  # noreorder # noqa: E402
 
 Config.set("graphics", "resizable", False)
-Config.set("graphics", "width", "800") #1280, 800
+Config.set("graphics", "width", "1280") #1280, 800
 Config.set("graphics", "height", "800")  # height in the calibration
 Config.set("graphics", "fullscreen", "false")
 Config.set("input", "mouse", "mouse,disable_on_activity")
@@ -75,7 +75,7 @@ class MyAruco:
         #     corners = cv2.cornerSubPix(frame, corners, (5,5), (-1,-1), criteria)
         # # We'll want to add the above for more accuracy but having difficulties
         frame_markers = cv2.aruco.drawDetectedMarkers(frame.copy(), corners, ids)
-        print(ids)
+        #print(ids)
         cv2.putText(frame, "Aruco Centering", (250, 150), cv2.FONT_HERSHEY_SIMPLEX, 6, (0, 255, 0), 4)
         return corners, ids, frame_markers
 
@@ -122,7 +122,6 @@ class MyAruco:
                     objPoints, corners[i], mtx, dist, rvecs[i], tvecs[i], criteria
                 )  # supposed to make more acuate i do not notice anything
                 cv2.drawFrameAxes(frame, mtx, dist, rvec, tvec, markerLength / 2, 3)
-                cv2.rectangle(frame, (200, 200), (700, 700), (0, 255, 0), 8)
                 #####################
                 for (markerCorner, markerID) in zip(corners, ids):
                     corners = markerCorner.reshape((4, 2))
