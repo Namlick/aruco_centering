@@ -292,7 +292,9 @@ class ArucoApp(App):
                         id = int(ids)
                         print(id)
                         if (id == 25):
-                            cv2.putText(img, "Jaffa Orange Tree", (100, 700), cv2.FONT_HERSHEY_COMPLEX, 3, (0, 255, 0), 4)
+                            cv2.putText(img, "Jaffa Orange Tree", (200, 100), cv2.FONT_HERSHEY_COMPLEX, 3, (255, 255, 255), 4)
+                            cv2.putText(img, "Estimated yeild: 300-500", (100, 300), cv2.FONT_HERSHEY_COMPLEX, 1.5, (255, 255, 255), 4)
+                            cv2.putText(img, "130 gallons of water per day", (100, 500), cv2.FONT_HERSHEY_COMPLEX, 1.5, (255, 255, 255), 4)
                             print("ID 25 detected!")
 
                     # # Scale up images for consistent viewing
