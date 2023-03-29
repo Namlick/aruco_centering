@@ -292,10 +292,21 @@ class ArucoApp(App):
                         id = int(ids)
                         print(id)
                         if (id == 25):
-                            cv2.putText(img, "Jaffa Orange Tree", (200, 100), cv2.FONT_HERSHEY_COMPLEX, 3, (255, 255, 255), 4)
-                            cv2.putText(img, "Estimated yeild: 300-500", (100, 300), cv2.FONT_HERSHEY_COMPLEX, 1.5, (255, 255, 255), 4)
-                            cv2.putText(img, "130 gallons of water per day", (100, 500), cv2.FONT_HERSHEY_COMPLEX, 1.5, (255, 255, 255), 4)
+                            cv2.putText(img, "Jaffa Orange Tree", (200, 100), cv2.FONT_HERSHEY_COMPLEX, 3, (0, 165, 255), 4)
+                            cv2.putText(img, "Estimated yeild: 300-500", (100, 300), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 165, 255), 4)
+                            cv2.putText(img, "15 gallons of water per day", (100, 500), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 165, 255), 4)
                             print("ID 25 detected!")
+                        elif (id == 56):
+                            cv2.putText(img, "Crimson Seedless Grape Vine", (200, 100), cv2.FONT_HERSHEY_COMPLEX, 3, (240, 32, 160), 4)
+                            cv2.putText(img, "Estimated yeild: 2-3 clusters", (100, 300), cv2.FONT_HERSHEY_COMPLEX, 1.5, (240, 32, 160), 4)
+                            cv2.putText(img, "8 gallons of water per day", (100, 500), cv2.FONT_HERSHEY_COMPLEX, 1.5, (240, 32, 160), 4)
+                            print("ID 25 detected!")
+                        elif (id == 498):
+                            cv2.putText(img, "Ambrosia Pomegranate Tree", (200, 100), cv2.FONT_HERSHEY_COMPLEX, 3, (0, 0, 255), 4)
+                            cv2.putText(img, "Estimated yeild: 100-150", (100, 300), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 0, 255), 4)
+                            cv2.putText(img, "1 gallon of water per day", (100, 500), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 0, 255), 4)
+                            print("ID 25 detected!")
+                            
 
                     # # Scale up images for consistent viewing
                     # if int(img.shape[1]) != dim[0]:  # If img width is different, make it the same
