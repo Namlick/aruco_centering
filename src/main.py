@@ -289,7 +289,7 @@ class ArucoApp(App):
                         )  # did not need to equal rvecs and t but could use later
                         img = frame_markers
                         
-                        if ids == "[[25]]":
+                        if ids == "25":
                             img = cv2.putText(frame.copy(), "Jaffa Orange Tree", (100, 700), cv2.FONT_HERSHEY_COMPLEX, 8, (0, 0, 0), 10)
                             print("ID 25 detected!")
 
