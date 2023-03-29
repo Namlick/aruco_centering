@@ -76,7 +76,7 @@ class MyAruco:
         # # We'll want to add the above for more accuracy but having difficulties
         frame_markers = cv2.aruco.drawDetectedMarkers(frame.copy(), corners, ids)
         #print(ids)
-        cv2.putText(frame, "Aruco Centering", (250, 150), cv2.FONT_HERSHEY_SIMPLEX, 6, (0, 255, 0), 4)
+        cv2.putText(frame, "No marker detected", (250, 150), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 0, 0), 4)
         return corners, ids, frame_markers
 
     def pose_estimation(self, frame, corners, ids, mtx, dist):
@@ -121,22 +121,22 @@ class MyAruco:
                 rvec, tvec = cv2.solvePnPRefineLM(
                     objPoints, corners[i], mtx, dist, rvecs[i], tvecs[i], criteria
                 )  # supposed to make more acuate i do not notice anything
-                cv2.drawFrameAxes(frame, mtx, dist, rvec, tvec, markerLength / 2, 3)
+                #cv2.drawFrameAxes(frame, mtx, dist, rvec, tvec, markerLength / 2, 3)
                 #####################
-                for (markerCorner, markerID) in zip(corners, ids):
-                    corners = markerCorner.reshape((4, 2))
-                    (topLeft, topRight, bottomRight, bottomLeft) = corners
-                    # convert each of the (x, y)-coordinate pairs to integers
-                    topRight = (int(topRight[0]), int(topRight[1]))
-                    bottomRight = (int(bottomRight[0]), int(bottomRight[1]))
-                    bottomLeft = (int(bottomLeft[0]), int(bottomLeft[1]))
-                    topLeft = (int(topLeft[0]), int(topLeft[1]))
+#                for (markerCorner, markerID) in zip(corners, ids):
+#                    corners = markerCorner.reshape((4, 2))
+#                    (topLeft, topRight, bottomRight, bottomLeft) = corners
+#                    # convert each of the (x, y)-coordinate pairs to integers
+#                    topRight = (int(topRight[0]), int(topRight[1]))
+#                    bottomRight = (int(bottomRight[0]), int(bottomRight[1]))
+#                    bottomLeft = (int(bottomLeft[0]), int(bottomLeft[1]))
+#                    topLeft = (int(topLeft[0]), int(topLeft[1]))
 
                     # draw the bounding box of the ArUCo detection
-                    cv2.line(frame, topLeft, topRight, (255, 255, 255), 2)
-                    cv2.line(frame, topRight, bottomRight, (255, 255, 255), 2)
-                    cv2.line(frame, bottomRight, bottomLeft, (255, 255, 255), 2)
-                    cv2.line(frame, bottomLeft, topLeft, (255, 255, 255), 2)
+#                    cv2.line(frame, topLeft, topRight, (255, 255, 255), 2)
+#                    cv2.line(frame, topRight, bottomRight, (255, 255, 255), 2)
+#                    cv2.line(frame, bottomRight, bottomLeft, (255, 255, 255), 2)
+#                    cv2.line(frame, bottomLeft, topLeft, (255, 255, 255), 2)
                 #####################
                 #print(markerLength)
         return rvecs, tvecs
