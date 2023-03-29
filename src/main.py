@@ -74,9 +74,9 @@ class MyAruco:
         #     corners = np.float32(corners)
         #     corners = cv2.cornerSubPix(frame, corners, (5,5), (-1,-1), criteria)
         # # We'll want to add the above for more accuracy but having difficulties
-        frame_markers = cv2.aruco.drawDetectedMarkers(frame.copy(), corners, ids)
+        #frame_markers = cv2.aruco.drawDetectedMarkers(frame.copy(), corners, ids)
         #print(ids)
-        cv2.putText(frame, "No marker detected", (250, 150), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255), 5)
+        cv2.putText(frame, "No marker detected", (350, 150), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255), 5)
         return corners, ids, frame_markers
 
     def pose_estimation(self, frame, corners, ids, mtx, dist):
