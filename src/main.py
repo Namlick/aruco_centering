@@ -76,7 +76,7 @@ class MyAruco:
         # # We'll want to add the above for more accuracy but having difficulties
         frame_markers = cv2.aruco.drawDetectedMarkers(frame.copy(), corners, ids)
         #print(ids)
-        cv2.putText(frame, "No marker detected", (250, 150), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 0, 0), 4)
+        cv2.putText(frame, "No marker detected", (250, 150), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255), 5)
         return corners, ids, frame_markers
 
     def pose_estimation(self, frame, corners, ids, mtx, dist):
@@ -121,7 +121,8 @@ class MyAruco:
                 rvec, tvec = cv2.solvePnPRefineLM(
                     objPoints, corners[i], mtx, dist, rvecs[i], tvecs[i], criteria
                 )  # supposed to make more acuate i do not notice anything
-                #cv2.drawFrameAxes(frame, mtx, dist, rvec, tvec, markerLength / 2, 3)
+                ###drawing frame axes###
+                cv2.drawFrameAxes(frame, mtx, dist, rvec, tvec, markerLength / 2, 6)
                 #####################
 #                for (markerCorner, markerID) in zip(corners, ids):
 #                    corners = markerCorner.reshape((4, 2))
@@ -139,6 +140,7 @@ class MyAruco:
 #                    cv2.line(frame, bottomLeft, topLeft, (255, 255, 255), 2)
                 #####################
                 #print(markerLength)
+                print(detect(frame))
         return rvecs, tvecs
 
 
