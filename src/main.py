@@ -141,7 +141,6 @@ class MyAruco:
 #                    cv2.line(frame, bottomLeft, topLeft, (255, 255, 255), 2)
                 #####################
                 #print(markerLength)
-                print(detect(frame))
         return rvecs, tvecs
 
 
