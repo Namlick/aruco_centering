@@ -75,13 +75,10 @@ class MyAruco:
         #     corners = cv2.cornerSubPix(frame, corners, (5,5), (-1,-1), criteria)
         # # We'll want to add the above for more accuracy but having difficulties
         frame_markers = cv2.aruco.drawDetectedMarkers(frame.copy(), corners, ids)
-        information = 0
-        if ids == "[[25]]":
-            information = cv2.putText(frame.copy(), "Jaffa Orange Tree", (100, 700), cv2.FONT_HERSHEY_COMPLEX, 8, (0, 0, 0), 10)
         
         #print(ids)
         cv2.putText(frame, "No marker detected", (350, 150), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 255), 5)
-        return corners, ids, information, frame_markers
+        return corners, ids, frame_markers
 
     def pose_estimation(self, frame, corners, ids, mtx, dist):
         markerLength = args.size_marker
@@ -289,10 +286,12 @@ class ArucoApp(App):
                     corners, ids, frame_markers = self.ma.detect(img)
                     if corners:
                         rvecs, tvecs = self.ma.pose_estimation(
-                            information, frame_markers, corners, ids, mtx, dist
+                            frame_markers, corners, ids, mtx, dist
                         )  # did not need to equal rvecs and t but could use later
                         img = frame_markers
-                        img = information
+                        
+                        if ids == "[[25]]":
+                            img = cv2.putText(frame.copy(), "Jaffa Orange Tree", (100, 700), cv2.FONT_HERSHEY_COMPLEX, 8, (0, 0, 0), 10)
 
                     # # Scale up images for consistent viewing
                     # if int(img.shape[1]) != dim[0]:  # If img width is different, make it the same
